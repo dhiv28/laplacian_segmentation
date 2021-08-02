@@ -691,11 +691,12 @@ def process_arguments(args):
 
 # Main block here
 if __name__ == '__main__':
-
-    parameters = process_arguments(sys.argv[1:])
-
+    print("Im here")
+    inputArgs = ['Kanne_Kalaimane.wav', 'output.lab']
+    parameters = process_arguments(inputArgs)
+    print('DEBUG: ' + str(parameters))
     # Load the features
-    print('- ', os.path.basename(parameters[r"D:\Users\Admin\Documents\Audacity\Kanne_Kalaimane_full.wav"]))
-    X_cqt, X_timbre, beat_intervals = features(parameters[r"D:\Users\Admin\Documents\Audacity\Kanne_Kalaimane_full.wav"])
+    print ('- ', os.path.basename(parameters['input_file']))
+    X_cqt, X_timbre, beat_intervals = features(parameters['input_file'])
 
     lsd(X_cqt, X_timbre, beat_intervals, parameters)
